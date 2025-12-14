@@ -135,11 +135,61 @@
   </div>
 
   <div class="section" id="payment">
-    <h2>Maintenance Status</h2>
+  <h2>Maintenance Status</h2>
+  <button onclick="openMaintenancePopup()">View</button>
+</div>
+
+<!-- Modal -->
+<div id="maintenanceModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Check Maintenance Status</h3>
     <label>Enter Flat Number</label>
-    <input type="text" id="flatNumber" placeholder="Enter your flat number">
-    <button onclick="showMaintenanceStatus()">View</button>
+    <input type="text" id="popupFlatNumber" placeholder="Enter your flat number">
+    <button onclick="showStatusInPopup()">Check Status</button>
+    <p id="statusText" style="margin-top:15px; font-weight:bold;"></p>
   </div>
+</div>
+
+<script>
+  // Hardcoded maintenance data
+  const maintenanceData = {
+    "101": "Paid: ₹5000",
+    "102": "Due: ₹3000",
+    "103": "Paid: ₹5000",
+    "104": "Due: ₹2500",
+    "105": "Paid: ₹4500"
+  };
+
+  function openMaintenancePopup() {
+    document.getElementById('statusText').innerText = ""; // Clear previous
+    document.getElementById('popupFlatNumber').value = ""; // Clear input
+    document.getElementById('maintenanceModal').style.display = "flex";
+  }
+
+  function showStatusInPopup() {
+    const flat = document.getElementById('popupFlatNumber').value.trim();
+    if(flat === "") {
+      alert("Please enter your flat number.");
+      return;
+    }
+
+    let statusMessage = maintenanceData[flat] ? `Flat ${flat} - ${maintenanceData[flat]}` : `No maintenance record found for Flat ${flat}`;
+    document.getElementById('statusText').innerText = statusMessage;
+  }
+
+  function closeModal() {
+    document.getElementById('maintenanceModal').style.display = "none";
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById('maintenanceModal');
+    if(event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
 
   <div class="section" id="admin">
     <h2>Admin Login</h2>
@@ -205,3 +255,4 @@
 
 </body>
 </html>
+
