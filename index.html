@@ -1,72 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naman Homes RWA | Prayagraj</title>
-  <style>
-    :root {
-      --primary: #1f3c88;
-      --secondary: #f4f6ff;
-      --accent: #ffb300;
-    }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: var(--secondary);
-      color: #333;
-    }
-    header {
-      background: linear-gradient(135deg, var(--primary), #2d6cdf);
-      color: #fff;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    header img {
-      height: 80px;
-      width: auto;
-    }
-    nav {
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    nav a {
-      padding: 12px 16px;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-    }
-    nav a:hover { background: #eef2ff; }
-    .container { max-width: 1100px; margin: auto; padding: 20px; }
-    .section {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-    }
-    h2 { color: var(--primary); margin-top: 0; }
-    .notice { background: #fff8e1; border-left: 6px solid var(--accent); padding: 12px; margin-bottom: 10px; }
-    label { display: block; margin-top: 10px; }
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-    }
-    button { background: var(--primary); color: #fff; border: none; cursor: pointer; }
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 15px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naman Homes RWA | Prayagraj</title>
+
+<style>
+:root{
+  --primary:#1f3c88;
+  --secondary:#f4f6ff;
+  --accent:#ffb300;
+}
+body{
+  margin:0;
+  font-family:Segoe UI,Arial,sans-serif;
+  background:var(--secondary);
+  color:#333;
+}
+header{
+  background:linear-gradient(135deg,var(--primary),#2d6cdf);
+  color:#fff;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+header img{
+  height:80px;
+}
+nav{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+nav a{
+  padding:12px 16px;
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:600;
+}
+nav a:hover{background:#eef2ff}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+.section{
+  background:#fff;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,.07);
+}
+.notice{
+  background:#fff8e1;
+  border-left:6px solid var(--accent);
+  padding:12px;
+}
+button{
+  padding:10px;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  width:100%;
+}
+footer{
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:15px;
+}
+input{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <!-- Place logo.png in the same folder as this HTML file -->
-  <img src="logo.png" alt="Naman Homes Logo" style="width:200px; height:auto;">
+  <img src="logo.png" alt="Naman Homes Logo">
   <div>
     <h1>Naman Homes Residents Welfare Society</h1>
     <p>Prayagraj, Uttar Pradesh</p>
@@ -75,9 +92,7 @@
 
 <nav>
   <a href="#notices">Notices</a>
-  <a href="#complaint">Complaint</a>
-  <a href="#payment">Maintenance Status</a>
-  <a href="#admin">Admin</a>
+  <a href="#maintenance">Maintenance Status</a>
 </nav>
 
 <div class="container">
@@ -85,73 +100,85 @@
   <div class="section" id="notices">
     <h2>Notices</h2>
     <div class="notice">Maintenance dues to be paid by 20th of this month.</div>
-    <!-- Upload notice.pdf in same folder -->
-    <a href="C:\Users\Naman Homes\Downloads\notice.docx" download> Notice with regard to payment of Maintainance (PDF)</a>
   </div>
 
-  <div class="section" id="complaint">
-    <h2>Complaint / Suggestion</h2>
-    <form>
-      <label>Name</label>
-      <input type="text" placeholder="Enter your name">
-
-      <label>Flat No</label>
-      <input type="text" placeholder="Enter flat number">
-
-      <label>Message</label>
-      <textarea placeholder="Write your complaint or suggestion"></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <div class="section" id="payment">
+  <div class="section" id="maintenance">
     <h2>Maintenance Status</h2>
-    <button onclick="OpenPopup()">View</button>
-  </div>
-
-  <div class="section" id="admin">
-    <h2>Admin Login</h2>
-    <label>Username</label>
-    <input type="text">
-
-    <label>Password</label>
-    <input type="password">
-
-    <button onclick="alert('Admin Panel Connected')">Login</button>
+    <button onclick="openPopup()">View Maintenance Status</button>
   </div>
 
 </div>
 
 <footer>
-  © 2025 Naman Homes Residents Welfare Society, Prayagraj
+© 2025 Naman Homes Residents Welfare Society, Prayagraj
 </footer>
-<!-- Maintenance Status Popup -->
-<div id="maintenancePopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-background:rgba(0,0,0,0.5); z-index:1000;">
 
-  <div style="background:#fff; width:90%; max-width:400px; margin:100px auto;
-  padding:20px; border-radius:10px; position:relative;">
+<!-- POPUP -->
+<div id="popup" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.5);z-index:1000">
 
-    <h3 style="color:#1f3c88;">Maintenance Status</h3>
+  <div style="background:#fff;max-width:400px;margin:100px auto;padding:20px;border-radius:10px">
+    <h3 style="color:#1f3c88">Check Maintenance Status</h3>
 
-    <label>Enter Flat Number</label>
-    <input type="text" id="flatInput" placeholder="e.g. A-203">
+    <label>Flat Number</label>
+    <input type="text" id="flatNo" placeholder="A-101">
 
-    <button onclick="checkStatus()" style="margin-top:10px;">Check Status</button>
+    <button onclick="checkStatus()" style="margin-top:10px">Check</button>
 
-    <p id="statusResult" style="margin-top:15px; font-weight:600;"></p>
+    <p id="result" style="margin-top:15px;font-weight:600"></p>
 
-    <button onclick="closePopup()" style="background:#999; margin-top:10px;">Close</button>
+    <button onclick="closePopup()" style="background:#999;margin-top:10px">Close</button>
   </div>
 </div>
 
+<script>
+const SHEET_ID = "PASTE_YOUR_SHEET_ID_HERE";
+const SHEET_NAME = "Maintenance";
+
+function openPopup(){
+  document.getElementById("popup").style.display="block";
+}
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+  document.getElementById("flatNo").value="";
+  document.getElementById("result").innerHTML="";
+}
+
+function checkStatus(){
+  const flat = document.getElementById("flatNo").value.trim();
+  const result = document.getElementById("result");
+
+  if(!flat){
+    result.style.color="red";
+    result.innerHTML="Please enter flat number";
+    return;
+  }
+
+  fetch(`https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`)
+  .then(res=>res.json())
+  .then(data=>{
+    const row = data.find(r=>r.FlatNo.toUpperCase()===flat.toUpperCase());
+    if(!row){
+      result.style.color="red";
+      result.innerHTML="Flat not found";
+      return;
+    }
+
+    if(row.Status==="PAID"){
+      result.style.color="green";
+      result.innerHTML=`Status: PAID ✔<br>Due Amount: ₹0<br>Last Paid: ${row.LastPaid}`;
+    }else{
+      result.style.color="orange";
+      result.innerHTML=`Status: DUE ✖<br>Due Amount: ₹${row.DueAmount}<br>Last Paid: ${row.LastPaid}`;
+    }
+  })
+  .catch(()=>{
+    result.style.color="red";
+    result.innerHTML="Unable to load data";
+  });
+}
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
 
