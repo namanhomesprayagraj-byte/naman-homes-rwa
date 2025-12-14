@@ -1,258 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naman Homes RWA | Prayagraj</title>
-  <style>
-    :root {
-      --primary: #1f3c88;
-      --secondary: #f4f6ff;
-      --accent: #ffb300;
-    }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: var(--secondary);
-      color: #333;
-    }
-    header {
-      background: linear-gradient(135deg, var(--primary), #2d6cdf);
-      color: #fff;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    header img {
-      height: 80px;
-      width: auto;
-    }
-    nav {
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    nav a {
-      padding: 12px 16px;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 600;
-    }
-    nav a:hover { background: #eef2ff; }
-    .container { max-width: 1100px; margin: auto; padding: 20px; }
-    .section {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.07);
-    }
-    h2 { color: var(--primary); margin-top: 0; }
-    .notice { background: #fff8e1; border-left: 6px solid var(--accent); padding: 12px; margin-bottom: 10px; }
-    label { display: block; margin-top: 10px; }
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      box-sizing: border-box;
-    }
-    button { background: var(--primary); color: #fff; border: none; cursor: pointer; }
-    button:hover { opacity: 0.9; }
-    footer { background: var(--primary); color: #fff; text-align: center; padding: 15px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naman Homes RWA | Prayagraj</title>
 
-    /* Modal Styles */
-    #maintenanceModal {
-      display: none;
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    #maintenanceModal .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      width: 400px;
-      max-width: 90%;
-      position: relative;
-      text-align: center;
-    }
-    #maintenanceModal .close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 20px;
-    }
-  </style>
+<style>
+:root{
+  --primary:#1f3c88;
+  --secondary:#f4f6ff;
+  --accent:#ffb300;
+}
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:var(--secondary);
+  color:#333;
+}
+header{
+  background:linear-gradient(135deg,var(--primary),#2d6cdf);
+  color:#fff;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+header img{height:70px}
+.admin-icon{
+  font-size:26px;
+  cursor:pointer;
+}
+nav{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+nav button{
+  background:none;
+  border:none;
+  font-size:16px;
+  font-weight:600;
+  color:var(--primary);
+  cursor:pointer;
+}
+.container{max-width:1100px;margin:auto;padding:20px}
+.section{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.07);
+}
+button.primary{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+  width:100%;
+}
+footer{
+  background:var(--primary);
+  color:#fff;
+  text-align:center;
+  padding:15px;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+.modal-content{
+  background:#fff;
+  padding:20px;
+  width:400px;
+  max-width:90%;
+  border-radius:10px;
+  position:relative;
+}
+.close{
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:20px;
+  cursor:pointer;
+}
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <img src="logo.png" alt="Naman Homes Logo" style="width:200px; height:auto;">
-  <div>
-    <h1>Naman Homes Residents Welfare Society</h1>
-    <p>Prayagraj, Uttar Pradesh</p>
+  <div class="header-left">
+    <img src="logo.png">
+    <div>
+      <h2>Naman Homes RWA</h2>
+      <small>Prayagraj, Uttar Pradesh</small>
+    </div>
   </div>
+  <div class="admin-icon" onclick="openModal('adminModal')">⚙️</div>
 </header>
 
 <nav>
-  <a href="#notices">Notices</a>
-  <a href="#complaint">Complaint</a>
-  <a href="#payment">Maintenance Status</a>
-  <a href="#admin">Admin</a>
+  <button onclick="openModal('noticeModal')">Notices</button>
+  <button onclick="openModal('complaintModal')">Complaint</button>
+  <button onclick="openModal('maintenanceModal')">Maintenance</button>
 </nav>
 
 <div class="container">
-
-  <div class="section" id="notices">
-    <h2>Notices</h2>
-    <div class="notice">Maintenance dues to be paid by 20th of this month.</div>
-    <a href="C:\Users\Naman Homes\Downloads\notice.docx" download>Download Notice (PDF)</a>
+  <div class="section">
+    <h3>Welcome to Naman Homes Residents Welfare Society Portal</h3>
+    <p>Use the menu above to view notices, raise complaints, or check maintenance status.</p>
   </div>
-
-  <div class="section" id="complaint">
-    <h2>Complaint / Suggestion</h2>
-    <form>
-      <label>Name</label>
-      <input type="text" placeholder="Enter your name">
-
-      <label>Flat No</label>
-      <input type="text" placeholder="Enter flat number">
-
-      <label>Message</label>
-      <textarea placeholder="Write your complaint or suggestion"></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <div class="section" id="payment">
-  <h2>Maintenance Status</h2>
-  <button onclick="openMaintenancePopup()">View</button>
 </div>
 
-<!-- Modal -->
-<div id="maintenanceModal">
+<!-- NOTICE MODAL -->
+<div class="modal" id="noticeModal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3>Check Maintenance Status</h3>
-    <label>Enter Flat Number</label>
-    <input type="text" id="popupFlatNumber" placeholder="Enter your flat number">
-    <button onclick="showStatusInPopup()">Check Status</button>
-    <p id="statusText" style="margin-top:15px; font-weight:bold;"></p>
+    <span class="close" onclick="closeModal('noticeModal')">&times;</span>
+    <h3>Notices</h3>
+    <p>Maintenance dues to be paid by 20th of this month.</p>
+    <p>Water tank cleaning on Sunday.</p>
   </div>
 </div>
 
-<script>
-  // Hardcoded maintenance data
-  const maintenanceData = {
-    "101": "Paid: ₹5000",
-    "102": "Due: ₹3000",
-    "103": "Paid: ₹5000",
-    "104": "Due: ₹2500",
-    "105": "Paid: ₹4500"
-  };
-
-  function openMaintenancePopup() {
-    document.getElementById('statusText').innerText = ""; // Clear previous
-    document.getElementById('popupFlatNumber').value = ""; // Clear input
-    document.getElementById('maintenanceModal').style.display = "flex";
-  }
-
-  function showStatusInPopup() {
-    const flat = document.getElementById('popupFlatNumber').value.trim();
-    if(flat === "") {
-      alert("Please enter your flat number.");
-      return;
-    }
-
-    let statusMessage = maintenanceData[flat] ? `Flat ${flat} - ${maintenanceData[flat]}` : `No maintenance record found for Flat ${flat}`;
-    document.getElementById('statusText').innerText = statusMessage;
-  }
-
-  function closeModal() {
-    document.getElementById('maintenanceModal').style.display = "none";
-  }
-
-  // Close modal when clicking outside
-  window.onclick = function(event) {
-    const modal = document.getElementById('maintenanceModal');
-    if(event.target === modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
-
-  <div class="section" id="admin">
-    <h2>Admin Login</h2>
-    <label>Username</label>
-    <input type="text">
-
-    <label>Password</label>
-    <input type="password">
-
-    <button onclick="alert('Admin Panel Connected')">Login</button>
-  </div>
-
-</div>
-
-<!-- Modal -->
-<div id="maintenanceModal">
+<!-- COMPLAINT MODAL -->
+<div class="modal" id="complaintModal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="close" onclick="closeModal('complaintModal')">&times;</span>
+    <h3>Complaint / Suggestion</h3>
+    <input placeholder="Name">
+    <input placeholder="Flat Number">
+    <textarea placeholder="Your message"></textarea>
+    <button class="primary" onclick="alert('Complaint submitted')">Submit</button>
+  </div>
+</div>
+
+<!-- MAINTENANCE MODAL -->
+<div class="modal" id="maintenanceModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('maintenanceModal')">&times;</span>
     <h3>Maintenance Status</h3>
-    <p id="statusText">Loading...</p>
+    <input id="flatInput" placeholder="Enter Flat Number">
+    <button class="primary" onclick="checkMaintenance()">Check Status</button>
+    <p id="maintenanceResult" style="margin-top:10px;font-weight:bold"></p>
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div class="modal" id="adminModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('adminModal')">&times;</span>
+    <h3>Admin Login</h3>
+    <input placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button class="primary" onclick="alert('Admin logged in')">Login</button>
   </div>
 </div>
 
 <footer>
-  © 2025 Naman Homes Residents Welfare Society, Prayagraj
+© 2025 Naman Homes Residents Welfare Society
 </footer>
 
 <script>
-  // Hardcoded maintenance data
-  const maintenanceData = {
-    "101": "Paid: ₹5000",
-    "102": "Due: ₹3000",
-    "103": "Paid: ₹5000",
-    "104": "Due: ₹2500",
-    "105": "Paid: ₹4500"
-    // Add more flats as needed
-  };
+const maintenanceData={
+  "101":"Paid ₹5000",
+  "102":"Due ₹3000",
+  "103":"Paid ₹5000",
+  "104":"Due ₹2500"
+};
 
-  function showMaintenanceStatus() {
-    const flat = document.getElementById('flatNumber').value.trim();
-    if(flat === "") {
-      alert("Please enter your flat number.");
-      return;
-    }
-
-    let statusMessage = maintenanceData[flat] ? `Flat ${flat} - ${maintenanceData[flat]}` : `No maintenance record found for Flat ${flat}`;
-    document.getElementById('statusText').innerText = statusMessage;
-    document.getElementById('maintenanceModal').style.display = "flex";
-  }
-
-  function closeModal() {
-    document.getElementById('maintenanceModal').style.display = "none";
-  }
-
-  // Close modal when clicking outside
-  window.onclick = function(event) {
-    const modal = document.getElementById('maintenanceModal');
-    if(event.target === modal) {
-      modal.style.display = "none";
-    }
-  }
+function openModal(id){
+  document.getElementById(id).style.display="flex";
+}
+function closeModal(id){
+  document.getElementById(id).style.display="none";
+}
+function checkMaintenance(){
+  const flat=document.getElementById("flatInput").value.trim();
+  document.getElementById("maintenanceResult").innerText=
+    maintenanceData[flat]
+    ? `Flat ${flat} – ${maintenanceData[flat]}`
+    : "No record found";
+}
+window.onclick=e=>{
+  document.querySelectorAll(".modal").forEach(m=>{
+    if(e.target===m)m.style.display="none";
+  });
+}
 </script>
 
 </body>
 </html>
-
